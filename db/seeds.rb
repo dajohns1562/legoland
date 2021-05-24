@@ -15,3 +15,10 @@ t2 = Topic.create :name => "special events"
 t3 = Topic.create :name => "news"
 
 puts "#{ Topic.count } topics created"
+
+
+############## ASSOCIATIONS ###########
+
+puts "user and topics association"
+u4.topics << t1 << t2
+u5.topics << t2 << t3
