@@ -29,17 +29,63 @@ class UsersController < ApplicationController
 
   # POST /users or /users.json
   def create
-    @user = User.new(user_params)
 
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user, notice: "User was successfully created." }
-        format.json { render :show, status: :created, location: @user }
+    @user = User.create(user_params)
+    @errors = []
+    if @user.email.include? "."
+
+      if @user.first_name.length > 1 && @user.last_name.length > 1
+        #true - check for no special characters and no numbers
+        special = "?<>',?[]}{=-)(*&^%$#`~{}"
+        regex = /[#{special.gsub(/./){|char| "\\#{char}"}}]/
+        if @user.first_name =~ regex || @user.last_name =~ regex
+          # contains special char
+          @errors << "Your name cannot contain special characters"
+          session[:errors] = @errors
+          redirect_to root_path
+        else
+
+          def has_digits?(str)
+            str.count("0-9") > 0
+          end
+
+          if has_digits?(@user.first_name)
+            @errors << "Your first name cannot contain numbers"
+            session[:errors] = @errors
+            redirect_to root_path
+          else
+            if has_digits?(@user.last_name)
+              @errors << "Your last name cannot contain numbers"
+              session[:errors] = @errors
+              redirect_to root_path
+            else
+              @user.save
+              redirect_to success_path
+            end
+          end
+
+
+        end
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        @errors << "Both first and last name must at least be 2 characters long"
+        session[:errors] = @errors
+        redirect_to root_path
       end
+    else
+      @errors << "An email must contain at least one full stop (.)"
+      session[:errors] = @errors
+      redirect_to root_path
+
     end
+    # respond_to do |format|
+    #   if @user.save
+    #     format.html { redirect_to @user, notice: "User was successfully created." }
+    #     format.json { render :show, status: :created, location: @user }
+    #   else
+    #     format.html { render :new, status: :unprocessable_entity }
+    #     format.json { render json: @user.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /users/1 or /users/1.json
