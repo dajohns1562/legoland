@@ -60,6 +60,7 @@ class UsersController < ApplicationController
               redirect_to root_path
             else
               @user.save
+              session[:user] = @user.id
               redirect_to success_path
             end
           end
