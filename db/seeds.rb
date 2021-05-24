@@ -13,3 +13,5 @@ Topic.destroy_all
 t1 = Topic.create :name => "deals"
 t2 = Topic.create :name => "special events"
 t3 = Topic.create :name => "news"
+
+puts "#{ Topic.count } topics created"
