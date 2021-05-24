@@ -1,34 +1,51 @@
-<h1>Sign up to Legoland Insider</h1>
+<h1 class="main_header">Become a Legoland Insider</h1>
 
-<%= form_with(model: @user, local: true) do |form| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_area :first_name %>
+<div class="row newsletter_features">
+  <div class="col-md-4 desc_col">
+    <%= image_tag 'lego1.png', :class => 'thumbnail' %>
+    <h2>Exclusive Deals</h2>
   </div>
-
-  <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_area :last_name %>
+  <div class="col-md-4 desc_col">
+    <%= image_tag 'lego2.png', :class => 'thumbnail' %>
+    <h2>Special Events</h2>
   </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_area :email %>
+  <div class="col-md-4 desc_col">
+    <%= image_tag 'lego3.png', :class => 'thumbnail' %>
+    <h2>First Look Previews</h2>
   </div>
+</div>
 
-  <div class="actions">
-    <%= form.submit %>
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+    <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
   </div>
 <% end %>
+
+<%= form_with(model: @user, local: true) do |form| %>
+
+  <div class="row">
+    <div class="col-md-6 field">
+      <%= form.text_field :first_name, :class => 'form-control inputText', required: true, :placeholder => "First Name"%>
+    </div>
+
+    <div class="col-md-6 field">
+      <%= form.text_field :last_name, :class => 'form-control inputText', required: true, :placeholder => "Last Name"%>
+    </div>
+
+    <div class="col-md-12 field">
+      <%= form.email_field :email, :class => 'form-control inputText', required: true, :placeholder => "Email Address"%>
+    </div>
+
+    <div class="col-md-10 offset-md-1">
+      <%= form.submit "Sign me up", class: "btn btn-dark btn-block"  %>
+    </div>
+  </div>
+<% end %>
+
+  <p class="col-md-8 offset-md-2 privacy_policy">We don't share your data with third parties. If you would like to read more check out our <u>privacy policy</u></p>
