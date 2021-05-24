@@ -1,9 +1,17 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
+  before_action :initialize_search, only: :index
 
   # GET /users or /users.json
   def index
-    @users = User.all
+    handle_search_name
+    # handle_filters
+    @topics = Topic.all
+  end
+
+  def clear
+    clear_session(:search_name, :filter)
+    redirect_to users_path
   end
 
   # GET /users/1 or /users/1.json
@@ -66,4 +74,37 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:first_name, :last_name, :email)
     end
+
+    def initialize_search
+      session[:search_name] ||= params[:search_name]
+      session[:filter] = params[:filter]
+    end
+
+    def handle_search_name
+      if session[:search_name]
+        # raise "hell"
+        @users = User.where("first_name LIKE ?", "%#{session[:search_name].titleize}%")
+      else
+        users = User.where(admin: false)
+        @users = users.sort_by { |u| [u.first_name, u.last_name] }
+      end
+
+    end
+
+    def handle_filters
+      if session[:filter]
+      topic = Topic.where(name: session[:filter])
+      id = topic.ids.first
+      currentTopic = Topic.find id
+      users = currentTopic.users
+      @users = User.where(admin: false)
+      @users = users.sort_by { |u| [u.first_name, u.last_name] }
+
+    else
+
+      users = User.where(admin: false)
+      @users = users.sort_by { |u| [u.first_name, u.last_name] }
+    end
+  end
+
 end
