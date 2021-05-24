@@ -27,6 +27,8 @@
   </div>
 <% end %>
 
+
+
 <%= form_with(model: @user, local: true) do |form| %>
 
   <div class="row">
@@ -49,3 +51,12 @@
 <% end %>
 
   <p class="col-md-8 offset-md-2 privacy_policy">We don't share your data with third parties. If you would like to read more check out our <u>privacy policy</u></p>
+
+
+  <% if session[:errors].present? %>
+    <ul>
+      <% session[:errors].each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    <ul>
+  <% end %>
