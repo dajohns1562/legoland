@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   end
 
   def success
-    raise "hell"
+  
   end
 
   # def create
