@@ -12,7 +12,7 @@
         <% @topics.each do |topic|  %>
           <div class="col-md-3 offset-md-1 topic-box">
             <%= f.label topic.name %>
-            <%= f.check_box :frequency, {:class => "form-control"} , topic.name %>
+            <%= f.check_box :frequency, {:class => "form-control"} , topic.id %>
             <%= image_tag 'lego-outline.png', :class => "outline" %>
           </div>
         <% end %>
