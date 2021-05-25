@@ -2,15 +2,15 @@
 <div class="row newsletter_features">
   <div class="col-md-4 desc_col">
     <%= image_tag 'lego1.png', :class => 'thumbnail' %>
-    <h2>Exclusive Deals</h2>
+    <h3 class="feature">Exclusive Deals</h3>
   </div>
   <div class="col-md-4 desc_col">
     <%= image_tag 'lego2.png', :class => 'thumbnail' %>
-    <h2>Special Events</h2>
+    <h3 class="feature">Special Events</h3>
   </div>
   <div class="col-md-4 desc_col">
     <%= image_tag 'lego3.png', :class => 'thumbnail' %>
-    <h2>First Look Previews</h2>
+    <h3 class="feature">First Look Previews</h3>
   </div>
 </div>
 <% if @user.errors.any? %>
@@ -25,23 +25,22 @@
 <% end %>
 <%= form_with(model: @user, local: true) do |form| %>
   <div class="row">
-    <div class="col-md-6 field">
+    <div class="col-md-2 offset-md-4 field">
       <%= form.text_field :first_name, :class => 'form-control inputText', required: true, :placeholder => "First Name"%>
     </div>
-    <div class="col-md-6 field">
+    <div class="col-md-2 field">
       <%= form.text_field :last_name, :class => 'form-control inputText', required: true, :placeholder => "Last Name"%>
     </div>
-    <div class="col-md-12 field">
+    <div class="col-md-4 offset-md-4 field">
       <%= form.email_field :email, :class => 'form-control inputText', required: true, :placeholder => "Email Address"%>
     </div>
-    <div class="col-md-10 offset-md-1">
-      <%= form.submit "Sign me up", class: "btn btn-dark btn-block"  %>
+    <div class="col-md-4 offset-md-4">
+      <%= form.submit "Sign me up", class: "btn btn-block  sign-up"  %>
+      <%= form.submit "Build your own newsletter", class: "btn btn-block btn-warning build-button" %>
     </div>
   </div>
 <% end %>
-<a href="/build">Build your own newsletter</a>
-<p class="col-md-8 offset-md-2 privacy_policy">We don't share your data with third parties. If you would like to read more check out our 
-  <a href="https://www.legolanddiscoverycentre.com/melbourne/security-privacy/privacy-policy-terms-and-conditions/"><u>privacy policy</u></a></p>
+<p class="col-md-4 offset-md-4 privacy_policy">We don't share your data with third parties. If you would like to read more check out our <u>privacy policy</u></p>
 <% if session[:errors].present? %>
   <ul>
     <% session[:errors].each do |error| %>

@@ -1,0 +1,31 @@
+<%= image_tag 'legoblock.png', :class => "brand" %>
+<h1>Build your own newsletter</h1>
+
+
+
+<%= form_for @user do |f|%>
+    <div class="form-group">
+      <h3>Select what you want to see in your newsletter</h3>
+
+      <div class="row topic-select">
+
+        <% @topics.each do |topic|  %>
+          <div class="col-md-3 offset-md-1 topic-box">
+            <%= f.label topic.name %>
+            <%= f.check_box :frequency, {:class => "form-control"} , topic.name %>
+            <%= image_tag 'lego-outline.png', :class => "outline" %>
+          </div>
+        <% end %>
+
+      </div>
+
+      <h3>How often would you like to receive mail?</h3>
+      <%= f.label :Weekly %>
+      <%= f.radio_button :frequency, "weekly" %>
+      <%= f.label :Monthly %>
+      <%= f.radio_button :frequency, "monthly" %>
+      <%= f.label :Yearly %>
+      <%= f.radio_button :frequency, "yearly" %>
+    </div>
+    <%= f.submit "Build", :class => "btn-primary" %>
+<% end %>
