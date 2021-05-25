@@ -9,7 +9,8 @@ class PagesController < ApplicationController
   end
 
   def build
-
+    @user = User.find session[:user]
+    raise "hell"
   end
 
   # def create
