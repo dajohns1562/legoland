@@ -16,9 +16,10 @@ nav {
   text-align: center;
 }
 
-.main_header {
+h1, .main_header {
   text-align: center;
   margin: 5% 0;
+  font-weight: bold;
 }
 
 .newsletter_features{
@@ -30,17 +31,24 @@ nav {
   font-size: 120%;
 }
 
-.sign-up {
+.build-button {
   background-color: #E9AC000;
 }
 
-.build-button {
-  background-color: #009D2E
+.sign-up {
+  background-color: #009D2E;
 }
 
 .feature {
   margin-top: 3%;
+  font-weight: bold;
 }
+.privacy_policy {
+  text-align: center;
+}
+
+
+
 /*
 input:focus ~ .floating-label,
 input:not(:focus):valid ~ .floating-label{

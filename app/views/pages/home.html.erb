@@ -3,15 +3,15 @@
 <div class="row newsletter_features">
   <div class="col-md-4 desc_col">
     <%= image_tag 'lego1.png', :class => 'thumbnail' %>
-    <h2 class="feature">Exclusive Deals</h2>
+    <h3 class="feature">Exclusive Deals</h3>
   </div>
   <div class="col-md-4 desc_col">
     <%= image_tag 'lego2.png', :class => 'thumbnail' %>
-    <h2 class="feature">Special Events</h2>
+    <h3 class="feature">Special Events</h3>
   </div>
   <div class="col-md-4 desc_col">
     <%= image_tag 'lego3.png', :class => 'thumbnail' %>
-    <h2 class="feature">First Look Previews</h2>
+    <h3 class="feature">First Look Previews</h3>
   </div>
 </div>
 
@@ -45,15 +45,13 @@
     </div>
 
     <div class="col-md-4 offset-md-4">
-      <%= form.submit "Sign me up", class: "btn btn-block btn-warning"  %>
-      <%= form.submit "Build your own newsletter", class: "btn btn-block build-button"  %>
+      <%= form.submit "Sign me up", class: "btn btn-block  sign-up"  %>
+      <%= form.submit "Build your own newsletter", class: "btn btn-block btn-warning build-button" %>
     </div>
   </div>
 <% end %>
 
-  <!-- <a href="/build">Build your own newsletter</a> -->
-
-  <p class="col-md-8 offset-md-2 privacy_policy">We don't share your data with third parties. If you would like to read more check out our <u>privacy policy</u></p>
+  <p class="col-md-4 offset-md-4 privacy_policy">We don't share your data with third parties. If you would like to read more check out our <u>privacy policy</u></p>
 
 
   <% if session[:errors].present? %>
