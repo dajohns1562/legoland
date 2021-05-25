@@ -89,6 +89,11 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1 or /users/1.json
   def update
+    user = User.find session[:user]
+    params[:topics].each do |topic|
+      current_topic = Topic.find topic
+      user.topics << current_topic
+    end
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: "User was successfully updated." }
@@ -117,7 +122,7 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email)
+      params.require(:user).permit(:first_name, :last_name, :email, :topic)
     end
 
     def initialize_search
