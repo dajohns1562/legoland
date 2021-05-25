@@ -5,7 +5,8 @@ class PagesController < ApplicationController
   end
 
   def success
-    @user = User.find params[:id]
+    @user = User.all.last
+    #raise "hell"
   end
 
   # def create
