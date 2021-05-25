@@ -62,7 +62,12 @@ class UsersController < ApplicationController
               @user.save
               session[:user] = @user.id
               clear_session(:errors)
-              redirect_to success_path
+
+              if params[:commit] == 'A'
+                redirect_to success_path
+              elsif params[:commit] == 'B'
+                redirect_to build_path
+              end 
             end
           end
 
