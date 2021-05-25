@@ -1,5 +1,4 @@
 <h1 class="main_header">Become a Legoland Insider</h1>
-
 <div class="row newsletter_features">
   <div class="col-md-4 desc_col">
     <%= image_tag 'lego1.png', :class => 'thumbnail' %>
@@ -14,51 +13,39 @@
     <h2>First Look Previews</h2>
   </div>
 </div>
-
 <% if @user.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
     <ul>
-    <% @user.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
     </ul>
   </div>
 <% end %>
-
-
-
 <%= form_with(model: @user, local: true) do |form| %>
-
   <div class="row">
     <div class="col-md-6 field">
       <%= form.text_field :first_name, :class => 'form-control inputText', required: true, :placeholder => "First Name"%>
     </div>
-
     <div class="col-md-6 field">
       <%= form.text_field :last_name, :class => 'form-control inputText', required: true, :placeholder => "Last Name"%>
     </div>
-
     <div class="col-md-12 field">
       <%= form.email_field :email, :class => 'form-control inputText', required: true, :placeholder => "Email Address"%>
     </div>
-
     <div class="col-md-10 offset-md-1">
       <%= form.submit "Sign me up", class: "btn btn-dark btn-block"  %>
     </div>
   </div>
 <% end %>
-
-  <a href="/build">Build your own newsletter</a>
-
-  <p class="col-md-8 offset-md-2 privacy_policy">We don't share your data with third parties. If you would like to read more check out our <u>privacy policy</u></p>
-
-
-  <% if session[:errors].present? %>
+<a href="/build">Build your own newsletter</a>
+<p class="col-md-8 offset-md-2 privacy_policy">We don't share your data with third parties. If you would like to read more check out our 
+  <a href="https://www.legolanddiscoverycentre.com/melbourne/security-privacy/privacy-policy-terms-and-conditions/"><u>privacy policy</u></a></p>
+<% if session[:errors].present? %>
+  <ul>
+    <% session[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
     <ul>
-      <% session[:errors].each do |error| %>
-        <li><%= error %></li>
-      <% end %>
-    <ul>
-  <% end %>
+    <% end %>

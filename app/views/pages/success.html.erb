@@ -1,21 +1,26 @@
-<h1>success!</h1>
-
-<%= form_for @user do |f|%>
-    <div class="form-group">
-      <%= f.label :email %>
-      <%= f.email_field :email, :value => @user.email, :class => "form-control" %>
+<div class = "container">
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-10 box">
+      <div class="row">
+        <div class="col-5"><%= image_tag 'lego7.png', :class => 'pic' %></div>
+        <div class="col-7 text">
+          <h5>"UserName" , Thank you for joining legoland</h5>
+        </div>
+      </div>
     </div>
-    <div class="form-group">
-      <%= f.label :bio %>
-      <%= f.text_field :bio, :value => @user.bio, :class => "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :name %>
-      <%= f.text_field :name, :value => @user.name,:class => "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :image %>
-      <%= f.text_field :image, :value => @user.image, :class => "form-control" %>
-    </div>
-    <%= f.submit "Update Profile", :class => "btn-primary" %>
-<% end %>
+    <div class="col-1"></div>
+  </div>
+</div>
+<div class="thumbnail">
+  <div class="l1"><%= image_tag 'vampire.png', :class => 'lego' %>
+    <%= image_tag 'batman.png', :class => 'lego' %></div>
+  <div class="l2">  <%= image_tag 'lego8.png', :class => 'lego' %></div>
+</div>
+<div class= "flag">
+  <h2 class="main_header">See you at Legoland!</h2>
+  <button type="button" class="btn btn-warning"><strong>Home</strong>
+    <a href="https://www.legoland.com/">
+    </a>
+  </button>
+</div>
