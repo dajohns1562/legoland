@@ -1,19 +1,23 @@
-<%= image_tag 'legoblock.png', :class => "brand" %>
+<%= image_tag 'legoblock.png', :class => "brand lego-block" %>
 <h1>Build your own newsletter</h1>
 
 
 
 <%= form_for @user do |f|%>
     <div class="form-group">
-      <h3>Select what you want to see in your newsletter</h3>
+      <h3 class="topic-header-select">Select what you want to see in your newsletter:</h3>
 
       <div class="row topic-select">
 
-        <% @topics.each do |topic|  %>
+        <% @topics.each_with_index do |topic, index|  %>
           <div class="col-md-3 offset-md-1 topic-box">
-            <%= f.label topic.name %>
-            <%= check_box_tag "topics[]", topic.id, {:class => "form-control"} %>
-            <%= image_tag 'lego-outline.png', :class => "outline" %>
+            <div class="<%= index %>">
+              <%= f.label topic.name %>
+              <%= check_box_tag "topics[]", topic.id, {:class => "form-control"}%>
+              <%= image_tag 'lego-outline.png', :id => "outline-lego" , :class => "outline hidden outline-lego#{index}" %>
+              <%= image_tag 'legoblock.png', :id => "coloured-lego", :class => "outline coloured-lego#{index}" %>
+            </div>
+
           </div>
         <% end %>
 

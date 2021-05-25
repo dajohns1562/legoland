@@ -26,8 +26,25 @@
   display: inline;
   margin-left: 2%;
   width: 120%;
+  font-size: 150%;
 }
 
 .build-button {
   font-weight: 700;
+}
+
+.lego-block {
+  margin-top: 3%;
+}
+
+.topic-header-select{
+  margin-top: 3%;
+}
+
+.hidden {
+  display: none;
+}
+
+.build-button {
+  margin-bottom: 5%;
 }

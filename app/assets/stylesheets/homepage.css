@@ -4,6 +4,10 @@ nav {
   text-align: center;
 }
 
+h1 {
+  font-weight: bold;
+}
+
 .brand {
   height: 5em;
 }
@@ -16,7 +20,7 @@ nav {
   text-align: center;
 }
 
-h1, .main_header {
+.main_header {
   text-align: center;
   margin: 5% 0;
   font-weight: bold;
@@ -47,6 +51,16 @@ h1, .main_header {
   text-align: center;
 }
 
+.errors {
+  background-color: white;
+  padding: 5px;
+  border: 2px solid black;
+  margin-bottom: 5%;
+}
+
+.tiny {
+  height: 3em;
+}
 
 
 

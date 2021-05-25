@@ -41,10 +41,12 @@
   </div>
 <% end %>
 <p class="col-md-4 offset-md-4 privacy_policy">We don't share your data with third parties. If you would like to read more check out our <u>privacy policy</u></p>
+
+<%= image_tag 'legoman.png', :class => 'tiny' %>
 <% if session[:errors].present? %>
-  <ul>
+  <div class="errors">
     <% session[:errors].each do |error| %>
-      <li><%= error %></li>
+      <p><%= error %></p>
     <% end %>
-    <ul>
-    <% end %>
+  </div>
+<% end %>

@@ -5,11 +5,12 @@ class PagesController < ApplicationController
   end
 
   def success
+    @user = User.find session[:user]
 
   end
 
   def build
-    
+
     @user = User.find session[:user]
     @topics = Topic.all
 
