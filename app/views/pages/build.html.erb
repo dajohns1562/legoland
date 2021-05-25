@@ -1,1 +1,31 @@
+<<<<<<< HEAD
+<h1>Build your own newsletter</h1>
+
+<%= form_for @user do |f|%>
+    <div class="form-group">
+      <h2>Select what you want to see in your newsletter</h2>
+      <%= f.label :News %>
+      <%= f.check_box :frequency, :value => @user.topics, :class => "form-control" %>
+      <%= f.label :"First Look Previews" %>
+      <%= f.check_box :frequency, :value => @user.topics, :class => "form-control" %>
+      <%= f.label :"Exclusive Deals" %>
+      <%= f.check_box :frequency, :value => @user.topics, :class => "form-control" %>
+      <%= f.label :"Special Events" %>
+      <%= f.check_box :frequency, :value => @user.topics, :class => "form-control" %>
+      <%= f.label :"Lego Shop News" %>
+      <%= f.check_box :frequency, :value => @user.topics, :class => "form-control" %>
+      <%= f.label :"Lego News" %>
+      <%= f.check_box :frequency, :value => @user.topics, :class => "form-control" %>
+      <h2>How often would you like to receive mail?</h2>
+      <%= f.label :Weekly %>
+      <%= f.check_box :frequency, :value => @user.topics, :class => "form-control" %>
+      <%= f.label :Monthly %>
+      <%= f.check_box :frequency, :value => @user.topics, :class => "form-control" %>
+      <%= f.label :Yearly %>
+      <%= f.check_box :frequency, :value => @user.topics, :class => "form-control" %>
+    </div>
+    <%= f.submit "Build", :class => "btn-primary" %>
+<% end %>
+=======
 <h1>Hello from build</h1>
+>>>>>>> dfe4ec0b5faf51b7d47b5eb3c048d0dd0656e698
