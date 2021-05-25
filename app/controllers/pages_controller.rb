@@ -5,7 +5,11 @@ class PagesController < ApplicationController
   end
 
   def success
-  
+
+  end
+
+  def build
+
   end
 
   # def create
