@@ -1,4 +1,8 @@
-<h2 class="text-muted">Log In</h2>
+<div class="admin_header">
+  <%= image_tag 'adminlego.png', :class => "brand" %>
+  <h2 class="text-muted">Mailing List Dashboard Login</h2>
+</div>
+
 <%= form_tag login_path do %>
   <%= label_tag :email %>
   <%= email_field_tag :email %>

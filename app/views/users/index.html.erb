@@ -17,14 +17,16 @@
   </select>
 </form>
 <h1>Users</h1>
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Email</th>
-      <th>Topics</th>
-      <th colspan="4"></th>
+      <th scope="col">First name</th>
+      <th scope="col">Last name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Topics</th>
+      <th scope="col">Frequency</th>
+      <th scope="col">Actions</th>
+      <th colspan="6"></th>
     </tr>
   </thead>
   <tbody>
@@ -34,6 +36,7 @@
         <td><%= user.last_name %></td>
         <td><%= user.email %></td>
         <td><%= user.topics.pluck(:name).join(', ') %></td>
+        <td><%= user.frequency%></td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
