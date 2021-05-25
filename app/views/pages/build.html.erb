@@ -20,12 +20,18 @@
       </div>
 
       <h3>How often would you like to receive mail?</h3>
-      <%= f.label :Weekly %>
-      <%= f.radio_button :frequency, "weekly" %>
-      <%= f.label :Monthly %>
-      <%= f.radio_button :frequency, "monthly" %>
-      <%= f.label :Yearly %>
-      <%= f.radio_button :frequency, "yearly" %>
+        <div class="frequency-choice">
+          <%= f.radio_button :frequency, "weekly" %>
+          <%= f.label :Weekly, "Weekly", :class => "freq-label" %>
+        </div>
+        <div class="frequency-choice">
+          <%= f.radio_button :frequency, "monthly" %>
+          <%= f.label :Monthly, "Monthly", :class => "freq-label"%>
+        </div>
+        <div class="frequency-choice">
+          <%= f.radio_button :frequency, "yearly" %>
+          <%= f.label :Yearly, "Yearly", :class => "freq-label"%>
+        </div>
     </div>
-    <%= f.submit "Build", :class => "btn-primary" %>
+    <%= f.submit "Build my newsletter!", :class => "btn btn-warning build-button  btn-lg" %>
 <% end %>
