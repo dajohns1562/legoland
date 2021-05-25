@@ -4,8 +4,10 @@ class UsersController < ApplicationController
 
   # GET /users or /users.json
   def index
+    # require 'pry'
+    # binding.pry
     handle_search_name
-    # handle_filters
+    handle_filters
     @topics = Topic.all
   end
 
@@ -67,7 +69,7 @@ class UsersController < ApplicationController
                 redirect_to success_path
               elsif params[:commit] == 'B'
                 redirect_to build_path
-              end 
+              end
             end
           end
 
@@ -125,30 +127,26 @@ class UsersController < ApplicationController
     end
 
     def handle_search_name
+      p @users
       if session[:search_name]
-        # raise "hell"
         @users = User.where("first_name LIKE ?", "%#{session[:search_name].titleize}%")
       else
         users = User.where(admin: false)
         @users = users.sort_by { |u| [u.first_name, u.last_name] }
       end
 
+      p @users
     end
 
     def handle_filters
       if session[:filter]
-      topic = Topic.where(name: session[:filter])
-      id = topic.ids.first
-      currentTopic = Topic.find id
-      users = currentTopic.users
-      @users = User.where(admin: false)
-      @users = users.sort_by { |u| [u.first_name, u.last_name] }
-
-    else
-
-      users = User.where(admin: false)
-      @users = users.sort_by { |u| [u.first_name, u.last_name] }
+        topic = Topic.find_by(name: session[:filter])
+        @users = topic.users.where(:user_id => @users.pluck(:id))
+      # filteredUsers = User.where(admin: false)
+      # filteredUsers = filteredUsers.sort_by { |u| [u.first_name, u.last_name] }
+      else
+        # users = User.where(admin: false)
+        # @users = users.sort_by { |u| [u.first_name, u.last_name] }
+      end
     end
-  end
-
 end

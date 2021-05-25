@@ -10,6 +10,7 @@ class PagesController < ApplicationController
 
   def build
     @user = User.find session[:user]
+    @topics = Topic.all
   end
 
   # def create

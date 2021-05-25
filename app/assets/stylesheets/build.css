@@ -1,0 +1,17 @@
+.topic-box {
+  background-color: white;
+  height: 10em;
+  width: 10em;
+  margin-top: 3%;
+  border-radius: 0.5em;
+  border: 2px solid black;
+  font-weight: 700;
+}
+
+.outline {
+  height: 6em;
+}
+
+.topic-select {
+  margin-bottom: 5%;
+}
