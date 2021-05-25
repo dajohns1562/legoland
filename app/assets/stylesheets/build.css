@@ -15,3 +15,19 @@
 .topic-select {
   margin-bottom: 5%;
 }
+
+.frequency-choice {
+  margin: 3%;
+  font-size: 120%;
+  font-weight: 700;
+}
+
+.freq-label {
+  display: inline;
+  margin-left: 2%;
+  width: 120%;
+}
+
+.build-button {
+  font-weight: 700;
+}

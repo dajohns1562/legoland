@@ -31,7 +31,7 @@ class UsersController < ApplicationController
 
   # POST /users or /users.json
   def create
-
+    # raise "hell"
     @user = User.create(user_params)
     @errors = []
     if @user.email.include? "."
@@ -64,10 +64,9 @@ class UsersController < ApplicationController
               @user.save
               session[:user] = @user.id
               clear_session(:errors)
-
-              if params[:commit] == 'A'
+              if params[:commit] == 'Sign me up'
                 redirect_to success_path
-              elsif params[:commit] == 'B'
+              elsif params[:commit] == 'Build your own newsletter'
                 redirect_to build_path
               end
             end
@@ -141,7 +140,7 @@ class UsersController < ApplicationController
     def handle_filters
       if session[:filter]
         topic = Topic.find_by(name: session[:filter])
-        @users = topic.users.where(:user_id => @users.pluck(:id))
+        @users = topic.users.where(:id => @users.pluck(:id))
       # filteredUsers = User.where(admin: false)
       # filteredUsers = filteredUsers.sort_by { |u| [u.first_name, u.last_name] }
       else
