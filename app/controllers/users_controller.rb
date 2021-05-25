@@ -89,7 +89,11 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1 or /users/1.json
   def update
-    params[:topics].each do 
+    user = User.find session[:user]
+    params[:topics].each do |topic|
+      current_topic = Topic.find topic
+      user.topics << current_topic
+    end
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: "User was successfully updated." }
