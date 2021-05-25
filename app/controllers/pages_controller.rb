@@ -4,6 +4,10 @@ class PagesController < ApplicationController
     @user = User.new
   end
 
+  def success
+    @user = User.find params[:id]
+  end
+
   # def create
   #   @user = User.new user_params
   #

@@ -60,6 +60,8 @@ class UsersController < ApplicationController
               redirect_to root_path
             else
               @user.save
+              session[:user] = @user.id
+              clear_session(:errors)
               redirect_to success_path
             end
           end
@@ -77,15 +79,6 @@ class UsersController < ApplicationController
       redirect_to root_path
 
     end
-    # respond_to do |format|
-    #   if @user.save
-    #     format.html { redirect_to @user, notice: "User was successfully created." }
-    #     format.json { render :show, status: :created, location: @user }
-    #   else
-    #     format.html { render :new, status: :unprocessable_entity }
-    #     format.json { render json: @user.errors, status: :unprocessable_entity }
-    #   end
-    # end
   end
 
   # PATCH/PUT /users/1 or /users/1.json
