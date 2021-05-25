@@ -5,8 +5,11 @@ class PagesController < ApplicationController
   end
 
   def success
-    @user = User.all.last
-    #raise "hell"
+
+  end
+
+  def build
+
   end
 
   # def create
