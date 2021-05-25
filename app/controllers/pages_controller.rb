@@ -5,7 +5,11 @@ class PagesController < ApplicationController
   end
 
   def success
-    @user = User.find params[:id]
+
+  end
+
+  def build
+
   end
 
   # def create

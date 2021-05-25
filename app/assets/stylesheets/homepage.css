@@ -1,3 +1,12 @@
+nav {
+  background-color: #FFCF00;
+  padding: 30px;
+  text-align: center;
+}
+
+.brand {
+  height: 5em;
+}
 
 .thumbnail {
   height: 15em;
