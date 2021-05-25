@@ -9,7 +9,7 @@ class PagesController < ApplicationController
   end
 
   def build
-
+    
   end
 
   # def create
