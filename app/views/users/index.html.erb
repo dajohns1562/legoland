@@ -1,14 +1,12 @@
 <p id="notice"><%= notice %></p>
-
 <!-- <label for="name-search">Search by name:</label>
 <input type="search" id="name-search" name="name-search"> -->
 <!-- <button>Search</button> -->
-
+<h1><a href="<%= login_path %>" data-method="delete">Sign Out</a></h1>
 <form action="/users" method="GET">
   <input type="text" name="search_name" >
   <input type="submit" value="Search for Users">
 </form>
-
 <form action="/users" method="GET">
   <label for="filter">Topic filters</label>
   <select id="filter" name="filter" onchange="this.form.submit()">
@@ -18,9 +16,7 @@
     <% end %>
   </select>
 </form>
-
 <h1>Users</h1>
-
 <table>
   <thead>
     <tr>
@@ -31,7 +27,6 @@
       <th colspan="4"></th>
     </tr>
   </thead>
-
   <tbody>
     <% @users.each do |user| %>
       <tr>
@@ -46,7 +41,5 @@
     <% end %>
   </tbody>
 </table>
-
 <br>
-
 <%= link_to "Clear Filter Options", clear_path %>
